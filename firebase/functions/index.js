@@ -2,21 +2,13 @@
 // for Dialogflow fulfillment library docs, samples, and to report issues
 'use strict';
 const vowels = ['a', 'e', 'i', 'o', 'u']
-const movies = ['Aamna Sharif', 'Aarathi', 'Aarti Agarwal', 'Aarti Chhabria', 'Abhirami', 'Adah Sharma'];
 const WELCOME_TITLE = "Welcome";
 const PLAYING_TITLE = "Playing the Game";
 const WRONG_GUESS_TITLE = " Wrong Guess Buddy";
 const CORRECT_GUESS_TITLE = "Awesome";
 
 const ALREADY_GUESSED_TITLE = "A letter of past";
-var config = {
-  apiKey: "AIzaSyBGG_I7iHBD7nUKwuQph4x3Rukhil0F8g4",
-  authDomain: "nikmul19-52d3f.firebaseapp.com",
-  databaseURL: "https://nikmul19-52d3f.firebaseio.com",
-  projectId: "nikmul19-52d3f",
-  storageBucket: "nikmul19-52d3f.appspot.com",
-  messagingSenderId: "579508655614"
-};
+
 /*
 const HINT_TITLE = "Helping Hint"
 const GIVE_UP_TITLE = "Oh Snap"
@@ -114,18 +106,6 @@ const {
 } = require('actions-on-google');
 
 
-
-const SMALL_IMAGE_URL = "https://s3.amazonaws.com/bollywoodgamebucket/Screenshot+2018-10-14+at+8.26.41+PM.png";
-
-const IMG_URL_AOG = 'https://developers.google.com/actions/images/badges' +
-  '/XPM_BADGING_GoogleAssistant_VER.png';
-const IMG_URL_GOOGLE_ALLO = 'https://allo.google.com/images/allo-logo.png';
-const IMG_URL_GOOGLE_HOME = 'https://lh3.googleusercontent.com' +
-  '/Nu3a6F80WfixUqf_ec_vgXy_c0-0r4VLJRXjVFF_X_CIilEu8B9fT35qyTEj_PEsKw';
-const IMG_URL_GOOGLE_PIXEL = 'https://storage.googleapis.com/madebygoog/v1' +
-  '/Pixel/Pixel_ColorPicker/Pixel_Device_Angled_Black-720w.png';
-const IMG_URL_MEDIA = 'http://storage.googleapis.com/automotive-media/album_art.jpg';
-const MEDIA_SOURCE = 'http://storage.googleapis.com/automotive-media/Jazz_In_Paris.mp3';
 
 
 const functions = require('firebase-functions');
@@ -250,62 +230,3 @@ app.intent("testIntent", (conv) => {
     conv.ask(conv.data.noOfGuesses+ conv.data.fillMovie);
 });
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
-/*exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
-  const agent = new WebhookClient({ request, response });
-  console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
-  console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
-
-  function welcome(agent) {
-      let conv=agent.conv();
-      conv.ask("Say yes or no to quit");
-    //agent.add(`Welcome to my agent!`);
-    //agent.add("Would you like to play?");
-
-
-    agent.add(conv);
-  }
-
-  function fallback(agent) {
-    agent.add(`I didn't understand`);
-    agent.add(`I'm sorry, can you try again?`);
-}
-
-  // // Uncomment and edit to make your own intent handler
-  // // uncomment `intentMap.set('your intent name here', yourFunctionHandler);`
-  // // below to get this function to be run when a Dialogflow intent is matched
-  // function yourFunctionHandler(agent) {
-  //   agent.add(`This message is from Dialogflow's Cloud Functions for Firebase editor!`);
-  //   agent.add(new Card({
-  //       title: `Title: this is a card title`,
-  //       imageUrl: 'https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png',
-  //       text: `This is the body text of a card.  You can even use line\n  breaks and emoji! 💁`,
-  //       buttonText: 'This is a button',
-  //       buttonUrl: 'https://assistant.google.com/'
-  //     })
-  //   );
-  //   agent.add(new Suggestion(`Quick Reply`));
-  //   agent.add(new Suggestion(`Suggestion`));
-  //   agent.setContext({ name: 'weather', lifespan: 2, parameters: { city: 'Rome' }});
-  // }
-
-  // // Uncomment and edit to make your own Google Assistant intent handler
-  // // uncomment `intentMap.set('your intent name here', googleAssistantHandler);`
-  // // below to get this function to be run when a Dialogflow intent is matched
-  // function googleAssistantHandler(agent) {
-  //   let conv = agent.conv(); // Get Actions on Google library conv instance
-  //   conv.ask('Hello from the Actions on Google client library!') // Use Actions on Google library
-  //   agent.add(conv); // Add Actions on Google library responses to your agent's response
-  // }
-  // // See https://github.com/dialogflow/dialogflow-fulfillment-nodejs/tree/master/samples/actions-on-google
-  // // for a complete Dialogflow fulfillment library Actions on Google client library v2 integration sample
-
-  // Run the proper function handler based on the matched Dialogflow intent name
-  let intentMap = new Map();
-  intentMap.set('Default Welcome Intent', welcome);
-  intentMap.set('Default Fallback Intent', fallback);
-  //intentMap.set("testIntent",)
-  // intentMap.set('your intent name here', yourFunctionHandler);
-  // intentMap.set('your intent name here', googleAssistantHandler);
-  agent.handleRequest(intentMap);
-});
-*/
